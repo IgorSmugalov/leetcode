@@ -1,13 +1,10 @@
-type Fn = (...args: any[]) => any
+type Fn = (...args: any[]) => any;
 
 function once(fn: Fn): Fn {
   let calls = 0;
   return function (...args) {
-    if (calls === 0) {
-      calls++;
-      return fn(...args)
-    }
-    return undefined;
+    calls++;
+    return calls > 1 ? undefined : fn(...args);
   };
 }
 
