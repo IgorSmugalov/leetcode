@@ -1,5 +1,4 @@
 function nextGreaterElement(nums1: number[], nums2: number[]): number[] {
-  const result: number[] = [];
   const stack: number[] = [];
   const map: Map<number, number> = new Map();
   for (let i = nums2.length - 1; i >= 0; i--) {
