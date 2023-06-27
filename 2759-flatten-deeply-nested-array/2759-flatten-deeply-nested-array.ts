@@ -5,13 +5,11 @@ var flat = function (
   n: number
 ): MultiDimensionalArray {
   const result: MultiDimensionalArray = [];
-  const sub = (el: number | MultiDimensionalArray, dep: number) => {
-    if (Array.isArray(el) && dep < n) {
-      el.forEach((el) => sub(el, dep + 1));
-    } else {
-      result.push(el);
-    }
+  const subFlat = (el: number | MultiDimensionalArray, depth: number) => {
+    if (Array.isArray(el) && depth < n)
+      el.forEach((el) => subFlat(el, depth + 1));
+    else result.push(el);
   };
-  arr.forEach((el) => sub(el, 0));
+  arr.forEach((el) => subFlat(el, 0));
   return result;
 };
