@@ -1,12 +1,10 @@
-// Last updated: 08.11.2025, 20:01:04
+// Last updated: 08.11.2025, 20:06:00
 class NumArray {
     prefixSumArr: number[] = []
     constructor(nums: number[]) {
         for (let i = 0; i < nums.length; i++) {
-            const prefixSum = nums.slice(0, i + 1).reduce(
-                (acc, num) => acc + num, 0
-            );
-            this.prefixSumArr.push(prefixSum);
+            const sum = (this.prefixSumArr[i - 1] ?? 0) + nums[i];
+            this.prefixSumArr.push(sum);
         }
     }
 
