@@ -1,13 +1,17 @@
-// Last updated: 08.11.2025, 15:42:30
-function twoSum(nums: number[], target: number): number[] {
-    for (let i1 = 0; i1 < nums.length; i1++) {
+// Last updated: 08.11.2025, 15:52:36
+function isPalindrome(x: number): boolean {
+    const str = x.toString()
 
-        for (let i2 = i1 + 1; i2 < nums.length; i2++) {
+    let leftIdx = 0
+    let rightIdx = str.length - 1
 
-            if (nums[i1] + nums[i2] === target) {
-                return [i1, i2]
-            }
+    while (leftIdx <= rightIdx) {
+        if (str[leftIdx] !== str[rightIdx]) {
+            return false
         }
+        leftIdx ++
+        rightIdx --
     }
-    return []
-}
+
+    return true
+};
