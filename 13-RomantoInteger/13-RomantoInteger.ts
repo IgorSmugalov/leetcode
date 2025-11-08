@@ -1,4 +1,4 @@
-// Last updated: 08.11.2025, 18:36:57
+// Last updated: 08.11.2025, 18:41:20
 function romanToInt(s: string): number {
     const dict = new Map<string, number>([
         ['I', 1],
@@ -11,7 +11,6 @@ function romanToInt(s: string): number {
     ]);
 
     const nums = s.split("").map((roman) => dict.get(roman)).reverse() as number[];
-    console.log(nums);
     let sum = 0;
     let prev = 0
     for (const num of nums) {
