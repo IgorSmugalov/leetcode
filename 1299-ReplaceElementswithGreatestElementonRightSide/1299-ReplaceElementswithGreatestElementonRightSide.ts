@@ -1,4 +1,4 @@
-// Last updated: 09.11.2025, 00:41:49
+// Last updated: 09.11.2025, 00:47:11
 function replaceElements(arr: number[]): number[] {
     const result = []
     let max
