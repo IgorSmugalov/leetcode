@@ -1,9 +1,6 @@
-// Last updated: 08.11.2025, 16:20:58
+// Last updated: 08.11.2025, 23:35:21
 function containsDuplicate(nums: number[]): boolean {
-  let hash: Map<number, boolean> = new Map();
-  for (const num of nums) {
-    if (hash.has(num)) return true;
-    else hash.set(num, true);
-  }
-  return false;
-}
+    const unique = new Set(nums)
+
+    return nums.length !== unique.size
+};
