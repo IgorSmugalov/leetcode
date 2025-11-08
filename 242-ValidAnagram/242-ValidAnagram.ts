@@ -1,27 +1,15 @@
-// Last updated: 09.11.2025, 00:14:28
+// Last updated: 09.11.2025, 00:25:50
 function isAnagram(s: string, t: string): boolean {
+
     if (s.length !== t.length) {
-        return false
+        return false;
     }
 
-    const sMap = parseStr(s)
-    const tMap = parseStr(t)
-
-    for(const [ char, count ] of sMap) {
-        if (tMap.get(char) !== count) {
-            return false;
-        }
+    const hash: Record<string, number> = { }
+    for (let i = 0; i < s.length; i++) {
+        hash[s[i]] = (hash[s[i]] ?? 0) + 1
+        hash[t[i]] = (hash[t[i]] ?? 0) - 1
     }
 
-    return true
+    return Object.values(hash).every(value => value === 0)
 };
-
-function parseStr(string: string) {
-    const map = new Map<string, number>()
-
-    for(const s of string) {
-        map.set(s, (map.get(s) ?? 0) + 1)
-    }
-
-    return map
-}
