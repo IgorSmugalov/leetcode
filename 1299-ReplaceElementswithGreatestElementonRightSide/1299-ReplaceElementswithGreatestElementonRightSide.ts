@@ -1,15 +1,17 @@
-// Last updated: 09.11.2025, 00:47:11
+// Last updated: 09.11.2025, 00:57:18
 function replaceElements(arr: number[]): number[] {
-    const result = []
-    let max
-    for(let i = 0; i < arr.length - 1; i++) {
-        if (!max || arr[i] === max) {
-            max = Math.max(...arr.slice(-(arr.length - 1 - i)))
+    let max = arr[arr.length - 1]
+    arr[arr.length - 1] = -1
+    
+
+    for(let i = arr.length - 2; i >= 0; i--) {
+        const current = arr[i]
+        arr[i] = max
+        const prev = arr[i - 1]
+        if (current > max) {
+            max = current
         }
-        
-        result[i] = max
     }
 
-    result.push(-1)
-    return result
+    return arr
 };
