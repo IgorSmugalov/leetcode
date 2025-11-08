@@ -1,15 +1,15 @@
-// Last updated: 08.11.2025, 20:06:00
+// Last updated: 08.11.2025, 20:07:36
 class NumArray {
-    prefixSumArr: number[] = []
+    prefixSumArr: number[] = [0]
     constructor(nums: number[]) {
         for (let i = 0; i < nums.length; i++) {
-            const sum = (this.prefixSumArr[i - 1] ?? 0) + nums[i];
+            const sum = this.prefixSumArr[i] + nums[i];
             this.prefixSumArr.push(sum);
         }
     }
 
     sumRange(left: number, right: number): number {
-        return this.prefixSumArr[right] - (this.prefixSumArr[left-1] ?? 0);
+        return this.prefixSumArr[right + 1] - this.prefixSumArr[left];
     }
 }
 
