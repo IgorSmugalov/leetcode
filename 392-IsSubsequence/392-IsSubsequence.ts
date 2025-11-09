@@ -1,11 +1,20 @@
-// Last updated: 08.11.2025, 16:20:47
+// Last updated: 09.11.2025, 13:27:07
 function isSubsequence(s: string, t: string): boolean {
-  let sChar = 0;
-  let tChar = 0;
+   let str = ''
+   let idxForSearch = 0
 
-  while (tChar < t.length && sChar < s.length) {
-    if (s[sChar] === t[tChar]) sChar++;
-    tChar++;
-  }
-  return sChar === s.length;
+   for(let char of t) {
+        const targetChar = s.charAt(idxForSearch)
+        if (char === targetChar) {
+            str = str + char
+            idxForSearch++
+
+            if (str.length === s.length) {
+                break
+            }
+        }
+
+   } 
+
+   return s === str
 };
