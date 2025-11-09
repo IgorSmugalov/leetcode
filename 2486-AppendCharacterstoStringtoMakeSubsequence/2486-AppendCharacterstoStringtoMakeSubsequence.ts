@@ -1,14 +1,12 @@
-// Last updated: 09.11.2025, 14:05:50
+// Last updated: 09.11.2025, 14:09:24
 function appendCharacters(s: string, t: string): number {
-    let sIdx = 0;
-    let tIdx = 0;
+    let finded = 0
 
-    while(sIdx < s.length && tIdx < t.length) {
-        if (s[sIdx] === t[tIdx]) {
-            tIdx++
+    for(let i = 0; i < s.length; i++) {
+        if (s[i] === t[finded]) {
+            finded++
         }
-        sIdx++
     }
 
-    return t.length - tIdx
+    return t.length - finded
 };
