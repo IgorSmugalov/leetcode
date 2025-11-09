@@ -1,16 +1,14 @@
-// Last updated: 09.11.2025, 13:05:22
+// Last updated: 09.11.2025, 13:13:07
 function twoSum(nums: number[], target: number): number[] {
-    
-    for(let i1 = 0; i1 < nums.length; i1++) {
-        const first = nums[i1]
-        
-        for(let i2 = i1 + 1; i2 < nums.length; i2++) {
-            const second = nums[i2]
-            if (first + second === target) {
-                return [i1, i2]
-            }
-
+    const hash = new Map<number, number>()
+    // key -> num in nums, value -> num index in nums
+    for(let i = 0; i < nums.length; i++) {
+        const num = nums[i]
+        const diff = target - num
+        if (hash.has(diff)) {
+            return [i, hash.get(diff)]
         }
+        hash.set(num, i)
     }
     return []
 };
