@@ -1,24 +1,34 @@
-// Last updated: 08.11.2025, 16:21:06
-const isValidSymbol = (symbol: string): boolean =>
-  /^[a-zA-Z0-9]+$/.test(symbol);
-
+// Last updated: 11.11.2025, 22:52:42
 function isPalindrome(s: string): boolean {
-  let front = 0;
-  let rear = s.length - 1;
-  while (front < rear) {
-    const frontSymbol = s[front];
-    const rearSymbol = s[rear];
-    if (!isValidSymbol(frontSymbol)) {
-      front++;
-      continue;
+    let left = 0;
+    let right = s.length - 1;
+
+    while(left < right) {
+        const leftChar = s[left].toLowerCase()
+        const rightChar = s[right].toLowerCase()
+
+        if (!isLetter(leftChar)) {
+            left++
+            continue
+        }
+
+        if (!isLetter(rightChar)) {
+            right--
+            continue
+        }
+        
+        left++
+        right--
+        
+        if (leftChar !== rightChar) {
+            return false
+        }
+        
     }
-    if (!isValidSymbol(rearSymbol)) {
-      rear--;
-      continue;
-    }
-    if (frontSymbol.toLowerCase() !== rearSymbol.toLowerCase()) return false;
-    front++;
-    rear--;
-  }
-  return true;
+
+    return true
+};
+
+function isLetter(char) {
+    return /^[a-zA-Zа-я0-9]$/.test(char);
 }
