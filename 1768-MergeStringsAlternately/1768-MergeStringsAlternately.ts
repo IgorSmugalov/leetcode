@@ -1,6 +1,7 @@
-// Last updated: 12.11.2025, 00:48:54
+// Last updated: 12.11.2025, 00:51:47
 function mergeAlternately(word1: string, word2: string): string {
-    let [i1, i2] = [0,0]
+    let i = 0
+    const max = Math.min(word1.length, word2.length)
     const res: string[] = []
     let suffix = ''
 
@@ -10,11 +11,9 @@ function mergeAlternately(word1: string, word2: string): string {
             : word2.slice(word1.length)
     }
 
-    while(i1 < word1.length && i2 < word2.length) {
-        res.push(word1[i1], word2[i2])
-
-        i1++
-        i2++
+    while(i < max) {
+        res.push(word1[i], word2[i])
+        i++
     }
 
     return res.join('') + suffix
