@@ -1,4 +1,4 @@
-// Last updated: 11.11.2025, 22:52:42
+// Last updated: 11.11.2025, 22:55:48
 function isPalindrome(s: string): boolean {
     let left = 0;
     let right = s.length - 1;
@@ -16,14 +16,14 @@ function isPalindrome(s: string): boolean {
             right--
             continue
         }
-        
-        left++
-        right--
+    
         
         if (leftChar !== rightChar) {
             return false
         }
-        
+
+        left++
+        right--
     }
 
     return true
