@@ -1,34 +1,27 @@
-// Last updated: 11.11.2025, 22:55:48
+// Last updated: 11.11.2025, 22:57:29
 function isPalindrome(s: string): boolean {
     let left = 0;
     let right = s.length - 1;
 
-    while(left < right) {
-        const leftChar = s[left].toLowerCase()
-        const rightChar = s[right].toLowerCase()
-
-        if (!isLetter(leftChar)) {
-            left++
-            continue
+    while (left < right) {
+        while (left < right && !isLetter(s[left])) {
+            left++;
+        }
+        while (left < right && !isLetter(s[right])) {
+            right--;
         }
 
-        if (!isLetter(rightChar)) {
-            right--
-            continue
-        }
-    
-        
-        if (leftChar !== rightChar) {
-            return false
+        if (s[left].toLowerCase() !== s[right].toLowerCase()) {
+            return false;
         }
 
-        left++
-        right--
+        left++;
+        right--;
     }
 
-    return true
-};
+    return true;
+}
 
-function isLetter(char) {
-    return /^[a-zA-Zа-я0-9]$/.test(char);
+function isLetter(char: string) {
+    return /^[\p{L}\p{N}]$/u.test(char);
 }
