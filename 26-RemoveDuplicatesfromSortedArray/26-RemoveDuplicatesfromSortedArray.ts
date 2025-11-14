@@ -1,6 +1,5 @@
-// Last updated: 14.11.2025, 20:09:05
+// Last updated: 14.11.2025, 20:10:36
 function removeDuplicates(nums: number[]): number {
-    const unique = new Set<number>()
     let uniqueIdx = 0
     for(let i = 0; i < nums.length; i++) {
         const number = nums[i]
